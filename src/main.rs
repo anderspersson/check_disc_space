@@ -4,16 +4,14 @@ use std::process;
 
     fn get_size(var: u64, t: &str) -> u64
 {
-    let r = match t
+    match t
     {
     "B" => var,
     "K" => var / 1024,
     "M" => var / 1_048_576,
     "G" => var / 1_073_741_824,
     _ => 0,
-    };
-
-    return r;
+    }
 }
 
 
