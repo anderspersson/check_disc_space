@@ -2,7 +2,7 @@ use fs2::free_space;
 use std::env;
 use std::process;
 
-    fn get_size(var: u64, t: &str) -> u64
+fn get_size(var: u64, t: &str) -> u64
 {
     match t
     {
@@ -13,7 +13,6 @@ use std::process;
     _ => 0,
     }
 }
-
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -35,10 +34,7 @@ fn main() {
         verbose = &args[3];
     }
 
-    let result = free_space(drive);
-    // Don't handling Erros => let val = result.unwrap();
-
-    match result {
+    match free_space(drive) {
         Ok(val) => {
             if verbose == "NO" {
                 println!("Space was {} {}B",get_size(val,size_type),size_type);
